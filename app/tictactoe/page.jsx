@@ -1,5 +1,9 @@
 "use client"
 
-function Board(){
-    <button name= "squre"> X </button>
-}
+export default function TicTacToePage(){
+    return(
+        <button > X 
+
+        </button>
+    );    
+};

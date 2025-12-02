@@ -1,33 +1,6 @@
-"use client"
-
-function Square({value}) {
-      return <button > {value} </button>
-}
-
-function Board(){
-        return(
-        <>
-        <div>
-        <Square value = "X"/>
-        <Square value = "X"/>
-        <Square value = "X"/>
-        </div>
-        <div>
-        <Square value = "X"/>
-        <Square value = "X"/>
-        <Square value = "X"/>
-        </div>
-        <div>
-        <Square value = "X"/>
-        <Square value = "X"/>
-        <Square value = "X"/>
-        </div>
-        </>
-    );  
-
-}
-
-export default function TicTacToePage(){
-    return <Board/>
+"use client" 
+import { use, useState } from "react"; 
+function Square({value, onSquareClick}) { 
+    return <button onClick={onSquareClick}> {value ?? "-"} </button> } 
     
-};
+    function Board(){ const [squares, setSquares] = useState(Array(9).fill(null)); const [xIsNext, setXIsNext] = useState(true); function handleClick (index){ const nextSquares = squares.slice(); nextSquares[index] = xIsNext ? "X" : "O"; setSquares(nextSquares); setXIsNext(!xIsNext); } return( <> <div> <Square value={squares[0]} onSquareClick={() => handleClick(0)}/> <Square value={squares[1]} onSquareClick={() => handleClick(1)}/> <Square value={squares[2]} onSquareClick={() => handleClick(2)}/> </div> <div> <Square value={squares[3]} onSquareClick={() => handleClick(3)}/> <Square value={squares[4]} onSquareClick={() => handleClick(4)}/> <Square value={squares[5]} onSquareClick={() => handleClick(5)}/> </div> <div> <Square value={squares[6]} onSquareClick={() => handleClick(6)}/> <Square value={squares[7]} onSquareClick={() => handleClick(7)}/> <Square value={squares[8]} onSquareClick={() => handleClick(8)}/> </div> </> ); } export default function TicTacToePage(){ return <Board/> }; 

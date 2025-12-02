@@ -41,15 +41,12 @@ function handleClick (index){
         setXIsNext(!xIsNext);
 } 
 
-    let status;
+let status;
 if (winner) {
-  status = `Winner: ${winner}`;
-} else {
-  status = `Next player: ${xIsNext ? "X" : "O"}`;
+    status = `Winner: ${winner}`;
+}else {
+    status = `Next player: ${xIsNext ? "X" : "O"}`;
 }
-
-
-
 
      return(
          <>
@@ -77,10 +74,4 @@ if (winner) {
 
 
 export default function TicTacToePage()
- { return (
-     <>
- <Board/> 
-
-</>
-)
- }; 
+ { return <Board/> }; 
